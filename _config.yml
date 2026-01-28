@@ -1,0 +1,26 @@
+# GitHub Pages Configuration
+title: "HeatLens Cambridge - Free Home Thermal Imaging"
+description: "Amateur thermal imaging for residential homes in Cambridge & Greater Boston - completely free"
+url: "https://yourusername.github.io"
+baseurl: "/thermal-camera-website"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+
+# Include files
+include:
+  - _pages
+
+# SEO and social
+author: "HeatLens Cambridge"
+
+# Google Analytics (optional)
+# google_analytics: UA-XXXXXXXX-X

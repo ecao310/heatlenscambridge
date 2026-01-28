@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeatLens Cambridge - Free Home Thermal Imaging</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="thermal-icon">🔥</span>
+                <h1>HeatLens Cambridge</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Thermal Imaging in Cambridge, MA</h2>
+                <p class="hero-subtitle">Amateur thermal imaging for your home - completely FREE!</p>
+                <p class="fun-tagline">Because I bought a thermal camera and want to use it</p>
+                <a href="#contact" class="cta-button">Book Your FREE Scan</a>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <h2>Detect Energy Leaks</h2>
+            
+            <!-- Interactive Before/After Slider -->
+            <div class="slider-container">
+                <h3>🔍 Drag the slider to see the difference!</h3>
+                <div class="image-slider">
+                    <div class="slider-wrapper">
+                        <!-- Before Image (Regular Photo) -->
+                        <div class="before-image">
+                            <img src="nature1.jpeg" alt="Regular photo view" class="slider-image">
+                        </div>
+                        
+                        <!-- After Image (Thermal) -->
+                        <div class="after-image">
+                            <img src="nature2.jpeg" alt="Thermal imaging view" class="slider-image">
+                        </div>
+                        
+                        <!-- Slider Handle -->
+                        <div class="slider-handle">
+                            <div class="slider-button">
+                                <span class="slider-icon">⟷</span>
+                            </div>
+                            <div class="slider-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <section id="completely-free" class="completely-free">
+            <h2>Completely Free!</h2>
+            <div class="reason">
+                <div class="camera-icon">📷🔥</div>
+                <h3>Because I bought a thermal camera</h3>
+                <p>and want to use it. Your home gets a free inspection, I get experience with my new toy.</p>
+                <p class="sub-note">Plus, everyone deserves to know if their house has hidden issues.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Ready for Your FREE Thermal Adventure? 🚀</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch!</h3>
+                    <p>📧 Email: heatlenscambridge@gmail.com</p>
+                    <p>📍 Serving: Cambridge & Greater Boston Area</p>
+                    <p>⏰ Response Time: Usually within 48 hours</p>
+                </div>
+                <div class="contact-form">
+                    <h3>Quick Contact Form</h3>
+                    <form action="https://formspree.io/f/mkoraany" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Phone Number (optional)">
+                        <input type="text" name="zipcode" placeholder="Zip Code (optional)" pattern="[0-9]{5}(-[0-9]{4})?" title="Please enter a valid zip code (e.g., 02139 or 02139-1234)">
+                        <textarea name="message" placeholder="Tell us about your home and what you'd like us to check!" rows="4" required></textarea>
+                        <input type="hidden" name="_subject" value="New HeatLens Cambridge Contact Form Submission">
+                        <button type="submit">Send Message 🚀</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 HeatLens Cambridge</p>
+        <p>Amateur thermal imaging • 100% Free • Community focused • Planet friendly</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
