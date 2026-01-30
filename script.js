@@ -213,7 +213,6 @@ class ReviewsCarousel {
             this.enableHardwareAcceleration();
             
             this.renderCurrentReview();
-            this.createDotIndicators();
             this.bindEvents();
             this.handleResponsiveLayout();
             
@@ -601,11 +600,6 @@ class ReviewsCarousel {
         } catch (error) {
             console.error('ReviewsCarousel: Error hiding navigation:', error);
         }
-    }
-    
-    createDotIndicators() {
-        // Dots have been removed
-        return;
     }
     
     updateNavigationState() {
