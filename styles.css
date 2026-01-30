@@ -446,18 +446,6 @@ section {
     overflow: hidden;
 }
 
-/* Add subtle gradient overlay for visual depth */
-.customer-reviews::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #ff6b6b 100%);
-    border-radius: 20px 20px 0 0;
-}
-
 .customer-reviews h2 {
     color: #333;
     font-size: 2.5rem;
@@ -635,28 +623,6 @@ section {
 
 .nav-btn:disabled::before {
     display: none;
-}
-
-.review-dots {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-/* Dot indicator styles moved to performance optimized section */
-
-/* Add purple/blue gradient accents */
-.customer-reviews .reviews-carousel::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-    border-radius: 2px;
-    opacity: 0.6;
 }
 
 
@@ -914,10 +880,7 @@ footer p {
         font-size: 1.8rem;
     }
     
-    .dot {
-        width: 14px;
-        height: 14px;
-    }
+
     
     .review-navigation {
         gap: 2.5rem;
@@ -1001,31 +964,18 @@ footer p {
         font-size: 1.4rem;
     }
     
-    .dot {
-        width: 11px;
-        height: 11px;
-    }
-    
     .review-navigation {
         gap: 1.8rem;
         margin-top: 2rem;
     }
     
     /* Ensure touch targets are accessible */
-    .nav-btn,
-    .dot {
+    .nav-btn {
         min-width: 44px;
         min-height: 44px;
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    
-    .dot {
-        padding: 16px; /* Increase touch area while keeping visual size */
-        min-width: 44px;
-        min-height: 44px;
-        border-radius: 50%;
     }
 }
 
@@ -1080,14 +1030,6 @@ footer p {
         width: 44px;
         height: 44px;
         font-size: 1.3rem;
-        min-width: 44px;
-        min-height: 44px;
-    }
-    
-    .dot {
-        width: 10px;
-        height: 10px;
-        padding: 17px; /* Ensure 44px touch target */
         min-width: 44px;
         min-height: 44px;
     }
@@ -1215,10 +1157,7 @@ footer p {
         flex-wrap: wrap;
     }
     
-    .review-dots {
-        width: 100%;
-        order: -1;
-    }
+
     
 
     
@@ -1281,18 +1220,8 @@ footer p {
         min-height: 44px;
     }
     
-    .dot {
-        width: 6px;
-        height: 6px;
-        padding: 19px; /* Ensure 44px touch target */
-    }
-    
     .review-navigation {
         gap: 0.5rem;
-    }
-    
-    .review-dots {
-        gap: 0.2rem;
     }
 }
 
@@ -1307,9 +1236,7 @@ footer p {
         border: 0.5px solid rgba(255, 255, 255, 0.1);
     }
     
-    .dot {
-        border: 0.5px solid rgba(255, 107, 107, 0.1);
-    }
+
 }
 
 /* Landscape Orientation Adjustments for Mobile */

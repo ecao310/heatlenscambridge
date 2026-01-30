@@ -240,7 +240,6 @@ class ReviewsCarousel {
             authorElement: this.container.querySelector('.review-author strong'),
             contextElement: this.container.querySelector('.review-context'),
             navigation: this.container.querySelector('.review-navigation'),
-            dotsContainer: this.container.querySelector('.review-dots'),
             prevBtn: this.container.querySelector('.nav-btn.prev'),
             nextBtn: this.container.querySelector('.nav-btn.next')
         };
@@ -355,7 +354,6 @@ class ReviewsCarousel {
         const navigation = this.container.querySelector('.review-navigation');
         const prevBtn = this.container.querySelector('.nav-btn.prev');
         const nextBtn = this.container.querySelector('.nav-btn.next');
-        const dots = this.container.querySelector('.review-dots');
         
         if (!navigation) return;
         
@@ -376,13 +374,6 @@ class ReviewsCarousel {
                 nextBtn.style.minWidth = '44px';
                 nextBtn.style.minHeight = '44px';
             }
-            
-            // Ensure dots have proper touch targets
-            const dotElements = this.container.querySelectorAll('.dot');
-            dotElements.forEach(dot => {
-                dot.style.minWidth = '44px';
-                dot.style.minHeight = '44px';
-            });
         }
     }
     
@@ -613,46 +604,8 @@ class ReviewsCarousel {
     }
     
     createDotIndicators() {
-        try {
-            const dotsContainer = this.cachedElements.dotsContainer;
-            if (!dotsContainer) {
-                console.warn('ReviewsCarousel: Dots container not found');
-                return;
-            }
-            
-            // Error handling: Don't create dots if we have 1 or fewer reviews
-            if (!this.reviews || this.reviews.length <= 1) {
-                dotsContainer.innerHTML = '';
-                return;
-            }
-            
-            // Performance optimization: Create dots in document fragment
-            const fragment = document.createDocumentFragment();
-            
-            this.reviews.forEach((_, index) => {
-                const dot = document.createElement('div');
-                dot.className = 'dot';
-                if (index === this.currentIndex) {
-                    dot.classList.add('active');
-                }
-                
-                // Performance optimization: Enable hardware acceleration for dots
-                dot.style.willChange = 'transform';
-                dot.style.transform = 'translateZ(0)';
-                
-                fragment.appendChild(dot);
-            });
-            
-            // Performance optimization: Single DOM operation
-            dotsContainer.innerHTML = '';
-            dotsContainer.appendChild(fragment);
-            
-            // Ensure touch conflicts are prevented for new dots
-            this.preventTouchConflicts();
-            
-        } catch (error) {
-            console.error('ReviewsCarousel: Error creating dot indicators:', error);
-        }
+        // Dots have been removed
+        return;
     }
     
     updateNavigationState() {
@@ -666,18 +619,7 @@ class ReviewsCarousel {
             // Performance optimization: Batch DOM updates
             const updates = [];
             
-            // Update dot indicators
-            const dots = this.cachedElements.dotsContainer?.querySelectorAll('.dot') || [];
-            dots.forEach((dot, index) => {
-                try {
-                    const isActive = index === this.currentIndex;
-                    updates.push(() => {
-                        dot.classList.toggle('active', isActive);
-                    });
-                } catch (dotError) {
-                    console.warn('ReviewsCarousel: Error updating dot at index', index, dotError);
-                }
-            });
+            // Dot indicators have been removed
             
             // Update navigation buttons
             const prevBtn = this.cachedElements.prevBtn;
