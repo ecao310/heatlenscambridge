@@ -99,7 +99,6 @@ const reviewsData = [
         quote: "I had no idea my attic was leaking so much heat! The thermal images showed exactly where to add insulation. Saved me hundreds on heating bills this winter.",
         author: "Sarah M.",
         context: "Discovered major insulation gaps in 1920s Cambridge home",
-        emoji: "🏠",
         featured: true
     },
     {
@@ -107,7 +106,6 @@ const reviewsData = [
         quote: "The thermal scan caught an electrical issue behind my kitchen wall that could have been dangerous. Plus, the whole experience was actually fun!",
         author: "Mike R.",
         context: "Found electrical hot spot during routine home check",
-        emoji: "⚡",
         featured: true
     },
     {
@@ -115,7 +113,6 @@ const reviewsData = [
         quote: "Free thermal imaging? I thought it was too good to be true, but it's legit! Found water damage I never would have noticed otherwise.",
         author: "Jennifer L.",
         context: "Detected hidden moisture damage in basement walls",
-        emoji: "💧",
         featured: true
     },
     {
@@ -123,7 +120,6 @@ const reviewsData = [
         quote: "My old Victorian house had so many hidden surprises! The thermal camera revealed drafts I never knew existed. Now my house is cozy and my bills are lower.",
         author: "David K.",
         context: "Identified multiple air leaks in historic Cambridge Victorian",
-        emoji: "🏚️",
         featured: true
     },
     {
@@ -131,7 +127,6 @@ const reviewsData = [
         quote: "As a new homeowner, I was worried about hidden problems. The thermal scan gave me peace of mind and showed me exactly what needed attention.",
         author: "Amanda T.",
         context: "First-time buyer's comprehensive home thermal assessment",
-        emoji: "🔍",
         featured: true
     }
 ];
@@ -198,7 +193,6 @@ class ReviewsCarousel {
                     quote: review.quote || "Review content unavailable",
                     author: review.author || "Anonymous Customer",
                     context: review.context || "",
-                    emoji: review.emoji || "💬",
                     featured: review.featured !== undefined ? review.featured : true
                 };
             });
@@ -266,7 +260,6 @@ class ReviewsCarousel {
             quoteElement: this.container.querySelector('.review-quote'),
             authorElement: this.container.querySelector('.review-author strong'),
             contextElement: this.container.querySelector('.review-context'),
-            quoteIcon: this.container.querySelector('.quote-icon'),
             navigation: this.container.querySelector('.review-navigation'),
             dotsContainer: this.container.querySelector('.review-dots'),
             prevBtn: this.container.querySelector('.nav-btn.prev'),
@@ -301,7 +294,6 @@ class ReviewsCarousel {
             '.review-quote',
             '.review-author strong',
             '.review-context',
-            '.quote-icon',
             '.review-navigation'
         ];
         
@@ -321,7 +313,6 @@ class ReviewsCarousel {
             if (reviewDisplay) {
                 reviewDisplay.innerHTML = `
                     <div class="review-content error-state">
-                        <div class="quote-icon">⚠️</div>
                         <blockquote class="review-quote">
                             We're having trouble loading customer reviews right now.
                         </blockquote>
@@ -329,7 +320,7 @@ class ReviewsCarousel {
                             <strong>HeatLens Cambridge Team</strong>
                         </div>
                         <div class="review-context">
-                            🔧 Please try refreshing the page or contact us if the problem persists.
+                            Please try refreshing the page or contact us if the problem persists.
                         </div>
                     </div>
                 `;
@@ -468,7 +459,7 @@ class ReviewsCarousel {
             // Use cached elements for better performance
             const elements = this.cachedElements;
             
-            if (!elements.quoteElement || !elements.authorElement || !elements.contextElement || !elements.quoteIcon) {
+            if (!elements.quoteElement || !elements.authorElement || !elements.contextElement) {
                 console.error('ReviewsCarousel: Required cached elements not found');
                 this.renderErrorState();
                 return;
@@ -495,16 +486,14 @@ class ReviewsCarousel {
             const quoteElement = this.container.querySelector('.review-quote');
             const authorElement = this.container.querySelector('.review-author strong');
             const contextElement = this.container.querySelector('.review-context');
-            const quoteIcon = this.container.querySelector('.quote-icon');
             
-            const isValid = quoteElement && authorElement && contextElement && quoteIcon;
+            const isValid = quoteElement && authorElement && contextElement;
             
             return {
                 isValid,
                 quoteElement,
                 authorElement,
-                contextElement,
-                quoteIcon
+                contextElement
             };
             
         } catch (error) {
@@ -519,7 +508,6 @@ class ReviewsCarousel {
             const safeQuote = this.sanitizeText(review.quote) || "Review content unavailable";
             const safeAuthor = this.sanitizeText(review.author) || "Anonymous Customer";
             const safeContext = this.sanitizeText(review.context) || "";
-            const safeEmoji = review.emoji || "💬";
             
             // Performance optimization: Batch DOM updates to minimize reflows
             const updates = [];
@@ -542,8 +530,7 @@ class ReviewsCarousel {
             if (elements.contextElement) {
                 updates.push(() => {
                     if (safeContext) {
-                        const contextWithEmoji = `${safeEmoji} ${safeContext}`;
-                        elements.contextElement.textContent = contextWithEmoji;
+                        elements.contextElement.textContent = safeContext;
                         elements.contextElement.style.display = 'block';
                     } else {
                         elements.contextElement.style.display = 'none';
@@ -551,17 +538,7 @@ class ReviewsCarousel {
                 });
             }
             
-            // Enhanced emoji integration with optimized animation
-            if (elements.quoteIcon) {
-                updates.push(() => {
-                    elements.quoteIcon.textContent = safeEmoji;
-                    // Performance optimization: Use CSS animation instead of JavaScript
-                    elements.quoteIcon.classList.remove('emoji-animate');
-                    // Force reflow to restart animation
-                    elements.quoteIcon.offsetHeight;
-                    elements.quoteIcon.classList.add('emoji-animate');
-                });
-            }
+
             
             // Performance optimization: Execute all DOM updates in a single batch
             updates.forEach(update => update());
@@ -572,7 +549,6 @@ class ReviewsCarousel {
             if (elements.quoteElement) elements.quoteElement.textContent = "Review content unavailable";
             if (elements.authorElement) elements.authorElement.textContent = "Anonymous Customer";
             if (elements.contextElement) elements.contextElement.style.display = 'none';
-            if (elements.quoteIcon) elements.quoteIcon.textContent = "💬";
         }
     }
     
@@ -590,63 +566,10 @@ class ReviewsCarousel {
         const reviewContent = this.cachedElements.reviewContent;
         if (!reviewContent) return;
         
-        // Performance optimization: Remove existing decorations efficiently
-        const existingDecorations = reviewContent.querySelectorAll('.review-decoration');
-        existingDecorations.forEach(el => el.remove());
-        
-        // Add floating emoji decorations
-        const currentReview = this.reviews[this.currentIndex];
-        if (currentReview && currentReview.emoji) {
-            this.createFloatingEmojis(reviewContent, currentReview.emoji);
-        }
-        
         // Performance optimization: Use CSS custom properties for dynamic styling
         reviewContent.style.setProperty('--review-bg-primary', '#f8f9fa');
         reviewContent.style.setProperty('--review-bg-secondary', '#ffffff');
         reviewContent.style.setProperty('--review-accent', 'rgba(255, 107, 107, 0.1)');
-    }
-    
-    createFloatingEmojis(container, emoji) {
-        // Performance optimization: Create emojis more efficiently
-        const positions = [
-            { top: '10px', right: '15px', animationDelay: '0s' },
-            { bottom: '15px', left: '20px', animationDelay: '1.3s' },
-            { top: '50%', right: '10px', transform: 'translateY(-50%)', animationDelay: '2.6s' }
-        ];
-        
-        // Performance optimization: Create all emojis in a document fragment
-        const fragment = document.createDocumentFragment();
-        
-        positions.forEach((position, i) => {
-            const floatingEmoji = document.createElement('div');
-            floatingEmoji.className = 'review-decoration floating-emoji';
-            floatingEmoji.textContent = emoji;
-            floatingEmoji.setAttribute('aria-hidden', 'true');
-            
-            // Performance optimization: Use CSS custom properties and classes
-            floatingEmoji.style.cssText = `
-                position: absolute;
-                font-size: 1.2rem;
-                opacity: 0.3;
-                pointer-events: none;
-                z-index: 1;
-                animation: float-emoji 4s ease-in-out infinite;
-                animation-delay: ${position.animationDelay};
-                will-change: transform;
-            `;
-            
-            // Apply position styles
-            Object.entries(position).forEach(([key, value]) => {
-                if (key !== 'animationDelay') {
-                    floatingEmoji.style[key] = value;
-                }
-            });
-            
-            fragment.appendChild(floatingEmoji);
-        });
-        
-        // Performance optimization: Single DOM append operation
-        container.appendChild(fragment);
     }
     
     renderEmptyState() {
@@ -657,10 +580,9 @@ class ReviewsCarousel {
             const quoteElement = elements.quoteElement || this.container.querySelector('.review-quote');
             const authorElement = elements.authorElement || this.container.querySelector('.review-author strong');
             const contextElement = elements.contextElement || this.container.querySelector('.review-context');
-            const quoteIcon = elements.quoteIcon || this.container.querySelector('.quote-icon');
             
             if (quoteElement) {
-                quoteElement.textContent = "Reviews coming soon! 🌟";
+                quoteElement.textContent = "Reviews coming soon!";
             }
             
             if (authorElement) {
@@ -668,14 +590,8 @@ class ReviewsCarousel {
             }
             
             if (contextElement) {
-                contextElement.textContent = "🏠 We're collecting customer experiences to share here";
+                contextElement.textContent = "We're collecting customer experiences to share here";
                 contextElement.style.display = 'block';
-            }
-            
-            if (quoteIcon) {
-                quoteIcon.textContent = "🔥";
-                // Add animation to empty state emoji
-                quoteIcon.style.animation = 'emoji-bounce 1s ease-out infinite alternate';
             }
             
             // Hide navigation for empty state
@@ -694,10 +610,9 @@ class ReviewsCarousel {
             if (reviewDisplay) {
                 reviewDisplay.innerHTML = `
                     <div class="review-content">
-                        <div class="quote-icon">🔥</div>
-                        <blockquote class="review-quote">Reviews coming soon! 🌟</blockquote>
+                        <blockquote class="review-quote">Reviews coming soon!</blockquote>
                         <div class="review-author"><strong>HeatLens Cambridge Team</strong></div>
-                        <div class="review-context">🏠 We're collecting customer experiences to share here</div>
+                        <div class="review-context">We're collecting customer experiences to share here</div>
                     </div>
                 `;
             }
@@ -1234,22 +1149,6 @@ class ReviewsCarousel {
             if (this.animationFrameId) {
                 cancelAnimationFrame(this.animationFrameId);
                 this.animationFrameId = null;
-            }
-            
-            // Remove any existing floating emojis efficiently
-            const decorations = this.container.querySelectorAll('.review-decoration');
-            decorations.forEach(el => {
-                try {
-                    el.remove();
-                } catch (removeError) {
-                    console.warn('ReviewsCarousel: Error removing decoration element:', removeError);
-                }
-            });
-            
-            // Performance optimization: Reset animations using CSS classes
-            const quoteIcon = this.cachedElements.quoteIcon;
-            if (quoteIcon) {
-                quoteIcon.classList.remove('emoji-animate');
             }
             
         } catch (error) {
