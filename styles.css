@@ -417,6 +417,288 @@ section {
     font-style: italic;
 }
 
+/* Accessibility Enhancements */
+
+/* Screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Customer Reviews Section */
+.customer-reviews {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 2rem auto;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 4rem 5%;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add subtle gradient overlay for visual depth */
+.customer-reviews::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #ff6b6b 100%);
+    border-radius: 20px 20px 0 0;
+}
+
+.customer-reviews h2 {
+    color: #333;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    font-style: italic;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}
+
+.reviews-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.review-display {
+    margin-bottom: 2rem;
+}
+
+/* Performance optimizations for smooth 60fps animations */
+.review-content {
+    background: linear-gradient(135deg, var(--review-bg-primary, #f8f9fa) 0%, var(--review-bg-secondary, #ffffff) 100%);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+    transform: translateZ(0); /* Enable hardware acceleration */
+}
+
+.review-content:hover {
+    transform: translateY(-2px) translateZ(0);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+
+/* Performance optimized navigation buttons */
+.nav-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+    transform: translateZ(0); /* Enable hardware acceleration */
+}
+
+/* Optimized shine effect using transform instead of position */
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translateX(-100%) translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-btn:hover::before {
+    transform: translateX(100%) translateZ(0);
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px) translateZ(0);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+
+/* Optimized dot animations */
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    will-change: transform;
+    transform: translateZ(0); /* Enable hardware acceleration */
+}
+
+.dot.active {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    transform: scale(1.2) translateZ(0);
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
+}
+
+.dot:hover {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    transform: scale(1.1) translateZ(0);
+    box-shadow: 0 2px 6px rgba(255, 107, 107, 0.3);
+}
+
+.quote-icon {
+    display: none;
+}
+
+.review-quote {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 2rem;
+    font-style: italic;
+    border: none;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: relative;
+}
+
+
+
+.review-author {
+    font-size: 1.1rem;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+.review-context {
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.review-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Navigation button styles moved to performance optimized section */
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+}
+
+.nav-btn:disabled::before {
+    display: none;
+}
+
+.review-dots {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Dot indicator styles moved to performance optimized section */
+
+/* Add purple/blue gradient accents */
+.customer-reviews .reviews-carousel::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+    opacity: 0.6;
+}
+
+
+
+/* Enhanced visual hierarchy for quotes */
+.review-quote {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* Community-focused aesthetic enhancements */
+.customer-reviews h2 {
+    position: relative;
+}
+
+
+
+
+
+/* Subtle pattern overlay for community feel */
+.customer-reviews::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(255, 107, 107, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(255, 142, 83, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.customer-reviews > * {
+    position: relative;
+    z-index: 1;
+}
+
 /* Completely Free Section */
 .completely-free {
     background: white;
@@ -593,7 +875,241 @@ footer p {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+    .customer-reviews {
+        padding: 5rem 8%;
+    }
+    
+    .customer-reviews h2 {
+        font-size: 3rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .review-content {
+        padding: 4rem 3rem;
+        max-width: 700px;
+    }
+    
+    .review-quote {
+        font-size: 1.4rem;
+        line-height: 1.7;
+    }
+    
+    .review-author {
+        font-size: 1.2rem;
+    }
+    
+    .review-context {
+        font-size: 1rem;
+    }
+    
+    .nav-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+    
+    .dot {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .review-navigation {
+        gap: 2.5rem;
+        margin-top: 3rem;
+    }
+}
+
+/* Desktop (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .customer-reviews {
+        padding: 4rem 6%;
+    }
+    
+    .customer-reviews h2 {
+        font-size: 2.8rem;
+    }
+    
+    .review-content {
+        padding: 3.5rem 2.5rem;
+        max-width: 650px;
+    }
+    
+    .review-quote {
+        font-size: 1.3rem;
+        line-height: 1.65;
+    }
+    
+    .nav-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
+    }
+    
+    .review-navigation {
+        gap: 2.2rem;
+        margin-top: 2.5rem;
+    }
+}
+
+/* Tablet (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .customer-reviews {
+        padding: 3.5rem 5%;
+    }
+    
+    .customer-reviews h2 {
+        font-size: 2.3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .review-content {
+        padding: 2.5rem 2rem;
+        max-width: 550px;
+    }
+    
+    .review-quote {
+        font-size: 1.15rem;
+        line-height: 1.6;
+        margin-bottom: 1.8rem;
+    }
+    
+    .review-author {
+        font-size: 1.05rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .review-context {
+        font-size: 0.9rem;
+    }
+    
+
+    
+    .nav-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+    }
+    
+    .dot {
+        width: 11px;
+        height: 11px;
+    }
+    
+    .review-navigation {
+        gap: 1.8rem;
+        margin-top: 2rem;
+    }
+    
+    /* Ensure touch targets are accessible */
+    .nav-btn,
+    .dot {
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .dot {
+        padding: 16px; /* Increase touch area while keeping visual size */
+        min-width: 44px;
+        min-height: 44px;
+        border-radius: 50%;
+    }
+}
+
+/* Mobile Large (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .customer-reviews {
+        padding: 3rem 4%;
+        margin: 1.5rem auto;
+    }
+    
+    .customer-reviews h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .review-content {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .review-quote {
+        font-size: 1.1rem;
+        line-height: 1.55;
+        margin-bottom: 1.5rem;
+    }
+    
+
+    
+    .review-author {
+        font-size: 1rem;
+        margin-bottom: 0.7rem;
+    }
+    
+    .review-context {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+
+    
+    .nav-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+        padding: 17px; /* Ensure 44px touch target */
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .review-navigation {
+        gap: 1.2rem;
+        margin-top: 1.8rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    /* Stack navigation on very narrow screens if needed */
+    .review-dots {
+        order: -1;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Mobile Small (up to 575px) */
+@media (max-width: 575px) {
     .nav-links {
         display: none;
     }
@@ -603,15 +1119,430 @@ footer p {
     }
     
     section {
-        padding: 2rem 5%;
+        padding: 2rem 4%;
     }
+    
+    .customer-reviews {
+        padding: 2.5rem 3%;
+        margin: 1rem auto;
+        border-radius: 15px;
+    }
+    
+    .customer-reviews h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.2;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.8rem;
+        line-height: 1.4;
+    }
+    
+    .review-content {
+        padding: 1.8rem 1.2rem;
+        max-width: 100%;
+        border-radius: 12px;
+    }
+    
+    .review-quote {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.3rem;
+    }
+    
+
+    
+    .review-author {
+        font-size: 0.95rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .review-context {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+
+    
+    .nav-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        min-width: 44px;
+        min-height: 44px;
+        box-shadow: 0 3px 12px rgba(255, 107, 107, 0.4);
+    }
+    
+    .nav-btn:hover {
+        box-shadow: 0 4px 16px rgba(255, 107, 107, 0.6);
+    }
+    
+    .dot {
+        width: 8px;
+        height: 8px;
+        padding: 18px; /* Ensure 44px touch target */
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .review-navigation {
+        gap: 0.8rem;
+        margin-top: 1.5rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .review-dots {
+        order: -1;
+        margin-bottom: 1rem;
+        gap: 0.3rem;
+    }
+    
+    .nav-btn.prev,
+    .nav-btn.next {
+        order: 1;
+    }
+    
+    /* Navigation buttons side by side on small screens */
+    .review-navigation .nav-btn {
+        display: inline-flex;
+    }
+    
+    .review-navigation {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .review-dots {
+        width: 100%;
+        order: -1;
+    }
+    
+
+    
+    /* Ensure readability by reducing visual clutter */
+    .customer-reviews::after {
+        opacity: 0.3;
+    }
+    
+
     
     .services h2,
     .gallery h2,
+    .customer-reviews h2,
     .completely-free h2,
     .donation-section h2,
     .contact h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Extra Small Mobile (320px and below) */
+@media (max-width: 320px) {
+    .customer-reviews {
+        padding: 2rem 2%;
+        margin: 0.5rem auto;
+    }
+    
+    .customer-reviews h2 {
+        font-size: 1.6rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .review-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    .review-quote {
+        font-size: 0.95rem;
+        line-height: 1.45;
+    }
+    
+    .review-author {
+        font-size: 0.9rem;
+    }
+    
+    .review-context {
+        font-size: 0.75rem;
+    }
+    
+
+    
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        min-width: 44px; /* Still maintain accessibility */
+        min-height: 44px;
+    }
+    
+    .dot {
+        width: 6px;
+        height: 6px;
+        padding: 19px; /* Ensure 44px touch target */
+    }
+    
+    .review-navigation {
+        gap: 0.5rem;
+    }
+    
+    .review-dots {
+        gap: 0.2rem;
+    }
+}
+
+/* High DPI / Retina Display Optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .customer-reviews {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .nav-btn {
+        border: 0.5px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .dot {
+        border: 0.5px solid rgba(255, 107, 107, 0.1);
+    }
+}
+
+/* Landscape Orientation Adjustments for Mobile */
+@media (max-width: 767px) and (orientation: landscape) {
+    .customer-reviews {
+        padding: 2rem 5%;
+    }
+    
+    .customer-reviews h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .section-subtitle {
+        margin-bottom: 1.5rem;
+    }
+    
+    .review-content {
+        padding: 1.8rem 2rem;
+    }
+    
+    .review-navigation {
+        margin-top: 1.2rem;
+    }
+}
+
+/* Accessibility and Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    .customer-reviews *,
+    .customer-reviews *::before,
+    .customer-reviews *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+
+    
+
+}
+
+/* Error State Styling */
+.error-state {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 107, 107, 0.05);
+    border: 2px dashed rgba(255, 107, 107, 0.2);
+    border-radius: 15px;
+    margin: 1rem 0;
+}
+
+.error-state .error-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.error-state h3 {
+    color: #ff6b6b;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.error-state p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Enhanced error state for review content */
+.review-content.error-state {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+    border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+
+
+.review-content.error-state .review-quote {
+    color: #666;
+    font-style: normal;
+}
+
+.review-content.error-state .review-author {
+    background: #ff6b6b;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.review-content.error-state .review-context {
+    color: #888;
+    font-style: italic;
+}
+
+/* Touch/Swipe Visual Feedback */
+.review-display {
+    position: relative;
+    overflow: hidden;
+}
+
+.swipe-indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: rgba(255, 107, 107, 0.8);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 10;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+}
+
+.swipe-indicator.swipe-left {
+    left: 2rem;
+}
+
+.swipe-indicator.swipe-right {
+    right: 2rem;
+}
+
+.review-display.touch-active {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Performance optimized touch/swipe animations */
+.review-display.swiping-left {
+    transform: translateX(-5px) translateZ(0);
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.review-display.swiping-right {
+    transform: translateX(5px) translateZ(0);
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.review-display.swipe-complete-left {
+    animation: swipe-complete-left-optimized 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.review-display.swipe-complete-right {
+    animation: swipe-complete-right-optimized 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes swipe-complete-left-optimized {
+    0% { transform: translateX(0) translateZ(0); }
+    50% { transform: translateX(-10px) translateZ(0); opacity: 0.8; }
+    100% { transform: translateX(0) translateZ(0); opacity: 1; }
+}
+
+@keyframes swipe-complete-right-optimized {
+    0% { transform: translateX(0) translateZ(0); }
+    50% { transform: translateX(10px) translateZ(0); opacity: 0.8; }
+    100% { transform: translateX(0) translateZ(0); opacity: 1; }
+}
+
+/* Mobile-specific touch optimizations */
+@media (max-width: 767px) {
+    .swipe-indicator {
+        font-size: 2.5rem;
+    }
+    
+    .swipe-indicator.swipe-left {
+        left: 1rem;
+    }
+    
+    .swipe-indicator.swipe-right {
+        right: 1rem;
+    }
+    
+    /* Ensure touch targets don't interfere with swipe gestures */
+    .review-display.touch-active .nav-btn,
+    .review-display.touch-active .dot {
+        pointer-events: none;
+    }
+    
+    /* Provide subtle haptic-like feedback through visual cues */
+    .review-display.swiping-left,
+    .review-display.swiping-right {
+        background: rgba(255, 107, 107, 0.05);
+        border-radius: 15px;
+    }
+}
+
+/* Extra small mobile adjustments */
+@media (max-width: 575px) {
+    .swipe-indicator {
         font-size: 2rem;
+    }
+    
+    .swipe-indicator.swipe-left {
+        left: 0.5rem;
+    }
+    
+    .swipe-indicator.swipe-right {
+        right: 0.5rem;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .customer-reviews {
+        background: white;
+        border: 2px solid #333;
+    }
+    
+    .review-content {
+        background: white;
+        border: 1px solid #666;
+    }
+    
+    .nav-btn {
+        background: #333;
+        color: white;
+        border: 2px solid #333;
+    }
+    
+    .nav-btn:hover {
+        background: white;
+        color: #333;
+    }
+    
+    .dot {
+        background: #666;
+        border: 1px solid #333;
+    }
+    
+    .dot.active {
+        background: #333;
     }
 }
 
