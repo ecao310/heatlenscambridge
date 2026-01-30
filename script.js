@@ -96,39 +96,18 @@ document.addEventListener('DOMContentLoaded', function() {
 const reviewsData = [
     {
         id: "review-001",
-        quote: "I had no idea my attic was leaking so much heat! The thermal images showed exactly where to add insulation. Saved me hundreds on heating bills this winter.",
-        author: "Sarah M.",
-        context: "Discovered major insulation gaps in 1920s Cambridge home",
+        quote: "I found an air leak around some of my window frames. The thermal images showed exactly where to add sealing.",
+        author: "Eric C.",
+        context: "The one with the thermal camera",
         featured: true
     },
-    {
-        id: "review-002", 
-        quote: "The thermal scan caught an electrical issue behind my kitchen wall that could have been dangerous. Plus, the whole experience was actually fun!",
-        author: "Mike R.",
-        context: "Found electrical hot spot during routine home check",
+        {
+        id: "review-002",
+        quote: "Your review will go here!",
+        author: "You!",
+        context: "Contact us to schedule an appointment",
         featured: true
     },
-    {
-        id: "review-003",
-        quote: "Free thermal imaging? I thought it was too good to be true, but it's legit! Found water damage I never would have noticed otherwise.",
-        author: "Jennifer L.",
-        context: "Detected hidden moisture damage in basement walls",
-        featured: true
-    },
-    {
-        id: "review-004",
-        quote: "My old Victorian house had so many hidden surprises! The thermal camera revealed drafts I never knew existed. Now my house is cozy and my bills are lower.",
-        author: "David K.",
-        context: "Identified multiple air leaks in historic Cambridge Victorian",
-        featured: true
-    },
-    {
-        id: "review-005",
-        quote: "As a new homeowner, I was worried about hidden problems. The thermal scan gave me peace of mind and showed me exactly what needed attention.",
-        author: "Amanda T.",
-        context: "First-time buyer's comprehensive home thermal assessment",
-        featured: true
-    }
 ];
 // Reviews Carousel Class - Handles review display and navigation
 class ReviewsCarousel {
