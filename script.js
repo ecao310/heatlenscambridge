@@ -1,3 +1,43 @@
+// Load shared components (header, contact, footer)
+document.addEventListener('DOMContentLoaded', function() {
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    const contactPlaceholder = document.getElementById('contact-placeholder');
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+
+    const loads = [];
+
+    if (headerPlaceholder) {
+        loads.push(fetch('components/header.html')
+            .then(r => r.text())
+            .then(html => { headerPlaceholder.outerHTML = html; }));
+    }
+
+    if (contactPlaceholder) {
+        loads.push(fetch('components/contact.html')
+            .then(r => r.text())
+            .then(html => { contactPlaceholder.outerHTML = html; }));
+    }
+
+    if (footerPlaceholder) {
+        loads.push(fetch('components/footer.html')
+            .then(r => r.text())
+            .then(html => { footerPlaceholder.outerHTML = html; }));
+    }
+
+    // After all components are loaded, reattach in-page smooth scrolling
+    Promise.all(loads).finally(() => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    });
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

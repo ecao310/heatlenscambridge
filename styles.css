@@ -36,6 +36,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-decoration: none;
 }
 
 .thermal-icon {
@@ -52,6 +53,7 @@ nav {
     color: #ff6b6b;
     font-weight: 700;
     font-size: 1.5rem;
+    text-decoration: none;
 }
 
 .nav-links {
@@ -838,6 +840,18 @@ footer {
 
 footer p {
     margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: #ff8e53;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+footer a:hover {
+    color: #ff6b6b;
+    text-decoration: underline;
 }
 
 /* Responsive Design */
