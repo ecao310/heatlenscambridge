@@ -47,9 +47,8 @@ function initSmoothScroll() {
 function initBeforeAfterSlider() {
     const slider = document.querySelector('.image-slider');
     const afterImage = document.querySelector('.after-image');
-    const handle = document.querySelector('.slider-handle');
 
-    if (!slider || !afterImage || !handle) return;
+    if (!slider || !afterImage) return;
 
     const move = (e) => {
         const x = e.pageX || (e.touches ? e.touches[0].pageX : 0);
@@ -58,7 +57,6 @@ function initBeforeAfterSlider() {
         const percentage = (position / rect.width) * 100;
 
         afterImage.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
-        handle.style.left = `${percentage}%`;
     };
 
     slider.addEventListener('mousemove', move);
@@ -71,17 +69,7 @@ function initReviewCarousel() {
         {
             quote: "I found an air leak around some of my window frames. The thermal images showed exactly where to add sealing.",
             author: "Eric C.",
-            context: "Cambridge Resident"
-        },
-        {
-            quote: "This service is incredible. Found a major cold spot in my attic that I never would have noticed otherwise.",
-            author: "Sarah L.",
-            context: "Somerville Resident"
-        },
-        {
-            quote: "Professional, friendly, and free! Highly recommend for anyone looking to save on heating bills.",
-            author: "David M.",
-            context: "Boston Homeowner"
+            context: "Thermal Camera Owner"
         }
     ];
 
@@ -117,7 +105,7 @@ function initReviewCarousel() {
 
     // Initial load
     updateReview();
-    
+
     // Auto rotation
     setInterval(() => {
         currentIndex = (currentIndex + 1) % reviews.length;
