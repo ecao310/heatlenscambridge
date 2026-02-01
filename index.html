@@ -1,72 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeatLens Cambridge - Free Home Thermal Imaging</title>
+    <title>HeatLens Cambridge | Free Home Thermal Imaging</title>
+    <meta name="description"
+        content="Discover energy leaks and improve your home's efficiency with free amateur thermal imaging in Cambridge, MA.">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
     <main>
+        <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="hero-content">
-                <h2>Thermal Imaging in Cambridge, MA</h2>
-                <p class="hero-subtitle">Amateur thermal imaging for your home - completely FREE!</p>
-                <p class="fun-tagline">Because I bought a thermal camera and want to use it</p>
-                <a href="#contact" class="cta-button">Book Your FREE Scan</a>
-            </div>
-        </section>
-
-        <section id="gallery" class="gallery">
-            <h2>Detect Energy Leaks</h2>
-            
-            <!-- Interactive Before/After Slider -->
-            <div class="slider-container">
-                <h3>🔍 Drag the slider to see the difference!</h3>
-                <div class="image-slider">
-                    <div class="slider-wrapper">
-                        <!-- Before Image (Regular Photo) -->
-                        <div class="before-image">
-                            <img src="nature1.jpeg" alt="Regular photo view" class="slider-image">
-                        </div>
-                        
-                        <!-- After Image (Thermal) -->
-                        <div class="after-image">
-                            <img src="nature2.jpeg" alt="Thermal imaging view" class="slider-image">
-                        </div>
-                        
-                        <!-- Slider Handle -->
-                        <div class="slider-handle">
-                            <div class="slider-button">
-                                <span class="slider-icon">⟷</span>
-                            </div>
-                            <div class="slider-line"></div>
-                        </div>
-                    </div>
+                <h2>Thermal Imaging for your Cambridge Home</h2>
+                <p class="hero-subtitle">Find hidden energy leaks and improve your home's comfort — completely FREE of
+                    charge.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="cta-button">Book Your Free Scan</a>
+                    <p class="fun-tagline">Because I bought a thermal camera and want to use it!</p>
                 </div>
             </div>
         </section>
 
-        <section id="customer-reviews" class="customer-reviews">
-            <h2>What Our Neighbors Say</h2>            
+        <!-- Gallery / Slider Section -->
+        <section id="gallery" class="gallery">
+            <h2>See What You're Missing</h2>
+            <div class="slider-container">
+                <h3>Compare standard view vs. thermal imaging</h3>
+                <div class="image-slider">
+                    <div class="slider-wrapper">
+                        <div class="before-image">
+                            <img src="nature1.jpeg" alt="Standard view of a house" class="slider-image">
+                        </div>
+                        <div class="after-image">
+                            <img src="nature2.jpeg" alt="Thermal view showing heat loss" class="slider-image">
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <h3>Book a Slot</h3>
+                    <p>Fill out the contact form. I'll reach out to schedule a quick 20-minute visit during a cold day.
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <h3>The Scan</h3>
+                    <p>I'll walk around your home's exterior and key interior areas with a high-resolution thermal
+                        camera.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <h3>Your Report</h3>
+                    <p>You'll receive a set of thermal images showing exactly where your home is losing heat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="customer-reviews">
+            <h2>What Your Neighbors Say</h2>
             <div class="reviews-carousel">
                 <div class="review-display">
                     <div class="review-content">
                         <blockquote class="review-quote">
-                            <!-- Review text content will be populated by JavaScript -->
+                            <!-- Populated by JS -->
                         </blockquote>
-                        <div class="review-author">
-                            <strong><!-- Customer name will be populated by JavaScript --></strong>
-                        </div>
-                        <div class="review-context">
-                            <!-- Brief context about their experience will be populated by JavaScript -->
+                        <div class="review-meta">
+                            <span class="review-author"></span>
+                            <span class="review-context"></span>
                         </div>
                     </div>
                 </div>
-                
                 <div class="review-navigation">
                     <button class="nav-btn prev" aria-label="Previous review">‹</button>
                     <button class="nav-btn next" aria-label="Next review">›</button>
@@ -74,12 +92,33 @@
             </div>
         </section>
 
-        <section id="completely-free" class="completely-free">
-            <h2>Completely Free!</h2>
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Is it really free?</h3>
+                    <p>Yes! This is a hobby project. I'm just an enthusiast who wants to help neighbors save energy and
+                        stay warm.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is it safe?</h3>
+                    <p>Absolutely. Thermal imaging is completely passive—the camera only "listens" to the heat your home
+                        emits naturally.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>When is the best time?</h3>
+                    <p>Cold days provide the best contrast for finding heat leaks.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Free Section -->
+        <section class="completely-free">
             <div class="reason">
-                <div class="camera-icon">📷🔥</div>
-                <h3>Because everyone deserves a comfortable, energy efficient home</h3>
-                <p class="sub-note">Plus, I got a thermal camera and want to use it.</p>
+                <div class="camera-icon">📷</div>
+                <h2>100% Free. No Strings.</h2>
+                <p>Every home deserves to be energy efficient. I have the tools, and this is my hobby.</p>
             </div>
         </section>
 
@@ -90,4 +129,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
